@@ -1,0 +1,23 @@
+{
+  "name": "rle-classify",
+  "version": "0.0.0",
+  "description": "Primitive intersection routines (point, ray, line segment, etc.) for narrowband level sets",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/rle-classify.git"
+  },
+  "keywords": [
+    "rle",
+    "point",
+    "ray",
+    "classify",
+    "narrowband",
+    "level",
+    "set"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "22f9b30bbf27810f7295ab11f5abc6028f883261"
+}

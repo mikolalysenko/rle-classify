@@ -1,6 +1,6 @@
 {
   "name": "rle-classify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Primitive intersection routines (point, ray, line segment, etc.) for narrowband level sets",
   "main": "index.js",
   "repository": {

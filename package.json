@@ -1,8 +1,11 @@
 {
   "name": "rle-classify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Primitive intersection routines (point, ray, line segment, etc.) for narrowband level sets",
   "main": "index.js",
+  "dependencies": {
+    "rle-core": "~0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/mikolalysenko/rle-classify.git"

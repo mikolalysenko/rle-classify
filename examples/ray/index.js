@@ -1,5 +1,5 @@
 var $         = require("jquery-browserify")
-  , rle       = require("../../src/index.js");
+  , classify  = require("../index.js");
 
 $(document).ready(function() {
 
@@ -7,12 +7,12 @@ $(document).ready(function() {
   var viewer = require("gl-shells").makeViewer({wireframe:true});
   
   //Create a volume from a sphere
-  var volume = rle.sample([-6,-6,-6], [7,7,7], function(x) {
-    return 5 - Math.sqrt(x[0]*x[0]+x[1]*x[1]+x[2]*x[2]);
+  var volume = require("rle-core").sampleSolid([-7,-7,-7], [7,7,7], function(x) {
+    return Math.sqrt(x[0]*x[0]+x[1]*x[1]+x[2]*x[2]) - 5.0;
   });
   
   //Extract mesh eagerly so we can append rays to it
-  var mesh = rle.surface(volume);
+  var mesh = require("rle-mesh")(volume);
   
   //Generate and test a bunch of random rays
   for(var i=0; i<1000; ++i) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
     }
   
     //Find the intersection
-    var intercept = rle.testRay(volume, origin, direction);
+    var intercept = classify.testRay(volume, origin, direction);
     
     //If the ray hit, add a pair of triangles to mesh so that we can draw it.
     if(intercept.hit) {
@@ -34,6 +34,8 @@ $(document).ready(function() {
       mesh.positions.push(intercept.x);
       mesh.faces.push([nv, nv+1, nv]);
       mesh.faces.push([nv+1, nv, nv+1]);
+    } else {
+      //console.log("Ray miss:", origin, direction, intercept);
     }
   }
   

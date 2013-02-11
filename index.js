@@ -1,2 +1,2 @@
-exports.testPoint = require("./lib/test_point.js");
-exports.testRay = require("./lib/test_ray.js");
+exports.point = require("./lib/test_point.js");
+exports.ray = require("./lib/test_ray.js");
